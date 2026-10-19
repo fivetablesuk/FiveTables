@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Five Tables
 
-## Getting Started
+Invitation-led private community for Black professionals in London.
 
-First, run the development server:
+**Tagline:** Good Company. Exceptional Conversation.  
+**Positioning:** Five Sectors. One Community.
+
+This repository contains the early-access website and waitlist experience.
+
+## Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | Next.js, TypeScript, Tailwind CSS |
+| Database | Neon (PostgreSQL) |
+| ORM | Drizzle |
+| Hosting | Vercel (recommended) |
+
+## Features (current)
+
+- Compact landing page with brand-aligned design
+- Early-access waitlist form (name, email, phone, sector)
+- Server-side validation and persistence to Neon
+- Responsive layout for desktop and mobile
+
+## Getting started
+
+### Requirements
+
+- Node.js 20+
+- pnpm
+- A Neon PostgreSQL database
+
+### Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Add your database connection string to `.env.local`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+DATABASE_URL="postgresql://USER:PASSWORD@HOST/neondb?sslmode=require"
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Push the database schema:
 
-## Learn More
+```bash
+pnpm db:push
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start local development |
+| `pnpm build` | Production build |
+| `pnpm start` | Run production server |
+| `pnpm lint` | Lint the project |
+| `pnpm db:push` | Sync Drizzle schema to Neon |
+| `pnpm db:studio` | Open Drizzle Studio |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Design
+
+- **Fonts:** Cormorant Garamond (headings), Jost (body / UI)
+- **Palette:** Black, ivory, muted champagne gold
+- See [docs/design-system.md](docs/design-system.md) for brand and visual guidelines
+
+## Environment
+
+Never commit `.env.local`. Use `.env.example` as a template. On production hosts (e.g. Vercel), set `DATABASE_URL` and `NEXT_PUBLIC_APP_URL` in project environment variables.
+
+## Licence
+
+Private — all rights reserved. © Five Tables, London.

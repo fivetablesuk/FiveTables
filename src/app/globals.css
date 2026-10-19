@@ -69,7 +69,7 @@
 
 :root {
   --radius: 0rem;
-  /* True black + champagne gold (#C5A059) — matches Lovable reference */
+  /* True black + champagne gold (#C5A059) */
   --background: oklch(0 0 0);
   --foreground: oklch(0.955 0.012 90);
   --card: oklch(0.12 0.004 60);
