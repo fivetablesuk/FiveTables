@@ -87,12 +87,16 @@ In the Vercel project → **Settings → Environment Variables**, add:
 | Name | Value |
 |------|--------|
 | `DATABASE_URL` | Neon connection string (`sslmode=require`) |
-| `NEXT_PUBLIC_APP_URL` | Production site URL |
+| `NEXT_PUBLIC_APP_URL` | `https://fivetables.co.uk` |
 | `RESEND_API_KEY` | Resend API key |
-| `EMAIL_FROM` | Verified sender, e.g. `Five Tables <hello@yourdomain.com>` |
+| `EMAIL_FROM` | `Five Tables <hello@fivetables.co.uk>` |
 | `WAITLIST_NOTIFY_EMAIL` | `fivetablesuk@gmail.com` |
 
 Apply to Production (and Preview if needed), then redeploy.
+
+### Domain: fivetables.co.uk
+
+Point the domain to Vercel (A/CNAME records from the Vercel project → Domains), then verify the same domain in Resend for sending.
 
 ### Waitlist emails
 
@@ -101,7 +105,7 @@ On each successful submission the app sends:
 1. **Team notification** → `fivetablesuk@gmail.com` (applicant details)
 2. **Confirmation** → the applicant’s email address
 
-Emails are sent with [Resend](https://resend.com). For production, verify your domain in Resend and set `EMAIL_FROM` to an address on that domain. Until then, Resend’s test sender (`onboarding@resend.dev`) can only deliver reliably to the email on your Resend account.
+Emails are sent with [Resend](https://resend.com) from `hello@fivetables.co.uk` once the domain is verified.
 
 ## Licence
 

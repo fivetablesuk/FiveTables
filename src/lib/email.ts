@@ -18,7 +18,7 @@ function getResend() {
 
 function getFromAddress() {
   return (
-    process.env.EMAIL_FROM ?? "Five Tables <onboarding@resend.dev>"
+    process.env.EMAIL_FROM ?? "Five Tables <hello@fivetables.co.uk>"
   );
 }
 
