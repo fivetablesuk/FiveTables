@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   },
   description:
     "Five Tables — an invitation-led private community for Black professionals in London. Five Sectors. One Community.",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL ?? "https://fivetables.co.uk",
+  ),
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

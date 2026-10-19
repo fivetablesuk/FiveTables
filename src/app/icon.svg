@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" fill="#000000"/>
+  <text
+    x="32"
+    y="40"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', Times, serif"
+    font-size="22"
+    font-weight="400"
+    letter-spacing="0.18em"
+    fill="#C5A059"
+  >FT</text>
+  <line x1="18" y1="48" x2="46" y2="48" stroke="#C5A059" stroke-width="1"/>
+</svg>
