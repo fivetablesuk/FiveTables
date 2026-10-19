@@ -78,7 +78,18 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Environment
 
-Never commit `.env.local`. Use `.env.example` as a template. On production hosts (e.g. Vercel), set `DATABASE_URL` and `NEXT_PUBLIC_APP_URL` in project environment variables.
+Never commit `.env.local`. Use `.env.example` as a template.
+
+### Vercel
+
+In the Vercel project → **Settings → Environment Variables**, add:
+
+| Name | Value |
+|------|--------|
+| `DATABASE_URL` | Neon connection string (`sslmode=require`) |
+| `NEXT_PUBLIC_APP_URL` | Production site URL |
+
+Apply to Production (and Preview if needed), then redeploy.
 
 ## Licence
 
