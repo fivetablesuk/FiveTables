@@ -3,6 +3,7 @@ import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { waitlistEntries } from "@/db/schema";
+import { sendWaitlistEmails } from "@/lib/email";
 import { SECTORS } from "@/lib/sectors";
 
 const sectorValues = SECTORS.map((sector) => sector.value) as [
@@ -87,6 +88,13 @@ export async function POST(request: Request) {
       phone: parsed.data.phone,
       sector: parsed.data.sector,
     });
+
+    try {
+      await sendWaitlistEmails(parsed.data);
+    } catch (emailError) {
+      // Application is already saved — do not fail the request if email fails.
+      console.error("[waitlist] email error", emailError);
+    }
 
     return NextResponse.json({
       ok: true,
