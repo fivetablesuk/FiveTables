@@ -60,10 +60,10 @@ export function WaitlistForm() {
       <div
         role="status"
         aria-live="polite"
-        className="fade-up border border-border px-8 py-14 text-center"
+        className="fade-up border border-border px-5 py-10 text-center sm:px-8 sm:py-14"
       >
-        <p className="eyebrow mb-5">Request received</p>
-        <h3 className="mb-4 text-3xl text-foreground md:text-4xl">
+        <p className="eyebrow mb-4 sm:mb-5">Request received</p>
+        <h3 className="mb-3 text-2xl text-foreground sm:mb-4 sm:text-3xl md:text-4xl">
           Thank you for your interest in Five Tables.
         </h3>
         <p className="mx-auto max-w-md text-sm leading-7 text-muted-foreground">
@@ -80,12 +80,12 @@ export function WaitlistForm() {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="fade-up space-y-8"
+      className="fade-up space-y-6 text-left sm:space-y-8"
       aria-busy={disabled}
     >
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
         <div>
-          <label htmlFor="name" className="eyebrow mb-3 block">
+          <label htmlFor="name" className="eyebrow mb-2 block sm:mb-3">
             Full name
           </label>
           <input
@@ -97,7 +97,7 @@ export function WaitlistForm() {
             disabled={disabled}
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? "name-error" : undefined}
-            className="field"
+            className="field text-base sm:text-sm"
             placeholder="Your full name"
           />
           {errors.name ? (
@@ -108,7 +108,7 @@ export function WaitlistForm() {
         </div>
 
         <div>
-          <label htmlFor="email" className="eyebrow mb-3 block">
+          <label htmlFor="email" className="eyebrow mb-2 block sm:mb-3">
             Email
           </label>
           <input
@@ -120,7 +120,7 @@ export function WaitlistForm() {
             disabled={disabled}
             aria-invalid={Boolean(errors.email)}
             aria-describedby={errors.email ? "email-error" : undefined}
-            className="field"
+            className="field text-base sm:text-sm"
             placeholder="you@example.com"
           />
           {errors.email ? (
@@ -131,7 +131,7 @@ export function WaitlistForm() {
         </div>
 
         <div>
-          <label htmlFor="phone" className="eyebrow mb-3 block">
+          <label htmlFor="phone" className="eyebrow mb-2 block sm:mb-3">
             Phone
           </label>
           <input
@@ -143,7 +143,7 @@ export function WaitlistForm() {
             disabled={disabled}
             aria-invalid={Boolean(errors.phone)}
             aria-describedby={errors.phone ? "phone-error" : undefined}
-            className="field"
+            className="field text-base sm:text-sm"
             placeholder="+44 …"
           />
           {errors.phone ? (
@@ -154,7 +154,7 @@ export function WaitlistForm() {
         </div>
 
         <div>
-          <label htmlFor="sector" className="eyebrow mb-3 block">
+          <label htmlFor="sector" className="eyebrow mb-2 block sm:mb-3">
             Sector
           </label>
           <select
@@ -165,7 +165,7 @@ export function WaitlistForm() {
             defaultValue=""
             aria-invalid={Boolean(errors.sector)}
             aria-describedby={errors.sector ? "sector-error" : undefined}
-            className="field appearance-none bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22 fill=%22none%22%3E%3Cpath d=%22M1 1.5L6 6.5L11 1.5%22 stroke=%22%23C5A059%22 stroke-width=%221.2%22/%3E%3C/svg%3E')] bg-size-[12px_8px] bg-position-[right_0_center] bg-no-repeat pr-8"
+            className="field appearance-none bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22 fill=%22none%22%3E%3Cpath d=%22M1 1.5L6 6.5L11 1.5%22 stroke=%22%23C5A059%22 stroke-width=%221.2%22/%3E%3C/svg%3E')] bg-size-[12px_8px] bg-position-[right_0_center] bg-no-repeat pr-8 text-base sm:text-sm"
           >
             <option value="" disabled>
               Select your table
@@ -185,16 +185,20 @@ export function WaitlistForm() {
       </div>
 
       {errors.form ? (
-        <p role="alert" className="text-sm text-primary">
+        <p role="alert" className="text-center text-sm text-primary">
           {errors.form}
         </p>
       ) : null}
 
-      <div className="pt-2 text-center">
-        <button type="submit" disabled={disabled} className="btn-gold min-w-[240px]">
+      <div className="pt-1 text-center sm:pt-2">
+        <button
+          type="submit"
+          disabled={disabled}
+          className="btn-gold w-full sm:w-auto sm:min-w-[240px]"
+        >
           {disabled ? "Submitting…" : "Request Early Access"}
         </button>
-        <p className="mt-6 text-xs leading-6 text-taupe">
+        <p className="mt-5 px-2 text-xs leading-6 text-taupe sm:mt-6">
           Early access is invitation-led. Submitting this form does not
           guarantee membership.
         </p>

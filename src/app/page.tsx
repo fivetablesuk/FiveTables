@@ -20,33 +20,33 @@ export default function Home() {
         {/* Compact hero */}
         <section
           id="home"
-          className="relative flex min-h-[70svh] items-center justify-center overflow-hidden md:min-h-[72svh]"
+          className="relative flex min-h-[62svh] items-center justify-center overflow-hidden sm:min-h-[68svh] md:min-h-[72svh]"
         >
           <Image
             src="/images/hero-dining.jpg"
             alt=""
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-[center_30%] sm:object-center"
             sizes="100vw"
           />
           <div className="veil absolute inset-0" aria-hidden />
           <div
-            className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/85"
+            className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/90"
             aria-hidden
           />
 
-          <div className="relative z-10 mx-auto w-full max-w-3xl px-6 pb-14 pt-24 text-center fade-up md:px-10 md:pb-16 md:pt-28">
-            <p className="eyebrow mb-5">
+          <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-12 pt-20 text-center fade-up sm:px-6 sm:pb-14 sm:pt-24 md:px-10 md:pb-16 md:pt-28">
+            <p className="eyebrow mx-auto mb-4 max-w-[18rem] sm:mb-5 sm:max-w-none">
               A Private Community for Black Professionals
             </p>
-            <h1 className="display-caps mb-4 text-[clamp(2.4rem,6.5vw,4.25rem)] leading-[0.95] text-foreground">
+            <h1 className="display-caps mb-3 text-[clamp(2rem,9vw,4.25rem)] leading-[1.05] text-foreground sm:mb-4">
               Five&nbsp;Tables
             </h1>
-            <p className="mb-5 font-serif text-lg italic text-foreground/90 md:text-xl">
+            <p className="mb-4 font-serif text-base italic text-foreground/90 sm:mb-5 sm:text-lg md:text-xl">
               The Calibre of Our Community.
             </p>
-            <p className="mx-auto mb-8 max-w-md text-[0.875rem] font-light leading-7 text-muted-foreground">
+            <p className="mx-auto mb-7 max-w-md text-[0.8125rem] font-light leading-6 text-muted-foreground sm:mb-8 sm:text-[0.875rem] sm:leading-7">
               An invitation-led community across five sectors — good company and
               exceptional conversation.
             </p>
@@ -57,22 +57,24 @@ export default function Home() {
         </section>
 
         {/* Compact tables strip */}
-        <section className="border-y border-border/70 bg-background px-6 py-12 md:px-10 md:py-14">
+        <section className="border-y border-border/70 bg-background px-4 py-10 sm:px-6 sm:py-12 md:px-10 md:py-14">
           <div className="mx-auto max-w-5xl">
-            <p className="eyebrow mb-8 text-center">Five Sectors. One Community.</p>
-            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5 lg:gap-0">
+            <p className="eyebrow mb-7 text-center sm:mb-8">
+              Five Sectors. One Community.
+            </p>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-8 lg:grid-cols-5 lg:gap-0">
               {TABLES.map((table, index) => (
                 <div
                   key={table.numeral}
-                  className={`flex flex-col items-center px-2 text-center ${
-                    index > 0 ? "lg:border-l lg:border-border" : ""
-                  }`}
+                  className={`flex flex-col items-center px-1 text-center sm:px-2 ${
+                    index === 4 ? "col-span-2 sm:col-span-1" : ""
+                  } ${index > 0 ? "lg:border-l lg:border-border" : ""}`}
                 >
-                  <span className="mb-2 font-serif text-3xl font-light text-primary">
+                  <span className="mb-2 font-serif text-[1.75rem] font-light text-primary sm:text-3xl">
                     {table.numeral}
                   </span>
                   <div className="mb-3 h-px w-7 bg-primary" aria-hidden />
-                  <p className="max-w-[8.5rem] text-[0.62rem] font-light leading-4 tracking-[0.1em] text-muted-foreground uppercase">
+                  <p className="max-w-[9rem] text-[0.58rem] font-light leading-4 tracking-[0.08em] text-muted-foreground uppercase sm:text-[0.62rem] sm:tracking-[0.1em]">
                     {table.name}
                   </p>
                 </div>
@@ -84,15 +86,15 @@ export default function Home() {
         {/* Waitlist */}
         <section
           id="early-access"
-          className="bg-background px-6 py-14 md:px-10 md:py-16"
+          className="scroll-mt-16 bg-background px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16"
         >
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow mb-4">Early Access</p>
-            <h2 className="mb-3 font-serif text-[clamp(1.85rem,4vw,2.75rem)] font-normal leading-[1.1] text-foreground">
+            <p className="eyebrow mb-3 sm:mb-4">Early Access</p>
+            <h2 className="mb-3 font-serif text-[clamp(1.65rem,6vw,2.75rem)] font-normal leading-[1.15] text-foreground">
               Join the Waitlist
             </h2>
-            <div className="mx-auto mb-5 h-px w-10 bg-primary" aria-hidden />
-            <p className="mx-auto mb-10 max-w-md text-[0.875rem] font-light leading-7 text-muted-foreground">
+            <div className="mx-auto mb-4 h-px w-10 bg-primary sm:mb-5" aria-hidden />
+            <p className="mx-auto mb-8 max-w-md text-[0.8125rem] font-light leading-6 text-muted-foreground sm:mb-10 sm:text-[0.875rem] sm:leading-7">
               Share your details to be considered for early access.
             </p>
             <WaitlistForm />
