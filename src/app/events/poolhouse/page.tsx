@@ -8,7 +8,8 @@ export const metadata: Metadata = {
 };
 
 const STRIPE_PAYMENT_URL =
-  "https://buy.stripe.com/4gM4gy0sFgTrgjK9Jqes00G";
+  process.env.NEXT_PUBLIC_POOLHOUSE_PAYMENT_LINK ??
+  "https://buy.stripe.com/test_aFa3cugrDeLj6JaaNues000";
 
 const DETAILS = [
   {

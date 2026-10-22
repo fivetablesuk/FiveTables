@@ -11,6 +11,7 @@ function getStripe() {
 export async function POST(request: Request) {
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
   if (!webhookSecret) {
+    console.error("[stripe.webhook] STRIPE_WEBHOOK_SECRET is not set");
     return NextResponse.json(
       { ok: false, message: "STRIPE_WEBHOOK_SECRET is not set." },
       { status: 500 },
@@ -33,6 +34,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, message: "Invalid signature." }, { status: 400 });
   }
 
+  console.info("[stripe.webhook] received", event.type, event.id);
+
   if (
     event.type === "checkout.session.completed" ||
     event.type === "checkout.session.async_payment_succeeded"
@@ -44,21 +47,37 @@ export async function POST(request: Request) {
       undefined;
     const name = session.customer_details?.name ?? "Guest";
 
-    if (email) {
-      const amount =
-        typeof session.amount_total === "number"
-          ? `£${(session.amount_total / 100).toFixed(0)}`
-          : "£89";
+    console.info("[stripe.webhook] checkout session", {
+      id: session.id,
+      email,
+      name,
+      payment_status: session.payment_status,
+    });
 
-      try {
-        await sendPoolhouseBookingEmails({
-          name,
-          email,
-          amountLabel: amount,
-        });
-      } catch (error) {
-        console.error("[stripe.webhook] email error", error);
-      }
+    if (!email) {
+      console.error("[stripe.webhook] no customer email on session — enable email collection on the Payment Link");
+      return NextResponse.json({ received: true, emailed: false, reason: "missing_email" });
+    }
+
+    const amount =
+      typeof session.amount_total === "number"
+        ? `£${(session.amount_total / 100).toFixed(0)}`
+        : "£89";
+
+    try {
+      await sendPoolhouseBookingEmails({
+        name,
+        email,
+        amountLabel: amount,
+      });
+      console.info("[stripe.webhook] booking emails sent", email);
+    } catch (error) {
+      console.error("[stripe.webhook] email error", error);
+      // Return 500 so Stripe retries and the failure shows in Dashboard
+      return NextResponse.json(
+        { ok: false, message: "Email send failed." },
+        { status: 500 },
+      );
     }
   }
 

@@ -70,61 +70,83 @@ function shell(title: string, eyebrow: string, bodyHtml: string) {
 </html>`;
 }
 
+async function sendOrThrow(
+  resend: Resend,
+  payload: Parameters<Resend["emails"]["send"]>[0],
+  label: string,
+) {
+  const result = await resend.emails.send(payload);
+  if (result.error) {
+    console.error(`[poolhouse.email] ${label} failed`, result.error);
+    throw new Error(result.error.message ?? `${label} failed`);
+  }
+  console.info(`[poolhouse.email] ${label} sent`, result.data?.id);
+  return result.data;
+}
+
 export async function sendPoolhouseBookingEmails(payload: PoolhouseBookingPayload) {
   const resend = getResend();
   const from = getFromAddress();
   const adminTo = getAdminInbox();
   const amount = payload.amountLabel ?? "£89";
 
-  await resend.emails.send({
-    from,
-    to: adminTo,
-    replyTo: payload.email,
-    subject: `Poolhouse booking confirmed — ${payload.name}`,
-    text: [
-      "A Poolhouse booking has been paid.",
-      "",
-      `Name: ${payload.name}`,
-      `Email: ${payload.email}`,
-      `Amount: ${amount}`,
-      `Event: Saturday 5 December · 8:00 PM · Liverpool Street`,
-    ].join("\n"),
-    html: shell(
-      "Poolhouse booking paid",
-      "Private Event",
-      `<p style="margin:0 0 16px;color:${IVORY};">A new Poolhouse booking has been confirmed.</p>
+  await sendOrThrow(
+    resend,
+    {
+      from,
+      to: adminTo,
+      replyTo: payload.email,
+      subject: `Poolhouse booking confirmed — ${payload.name}`,
+      text: [
+        "A Poolhouse booking has been paid.",
+        "",
+        `Name: ${payload.name}`,
+        `Email: ${payload.email}`,
+        `Amount: ${amount}`,
+        `Event: Saturday 5 December · 8:00 PM · Liverpool Street`,
+      ].join("\n"),
+      html: shell(
+        "Poolhouse booking paid",
+        "Private Event",
+        `<p style="margin:0 0 16px;color:${IVORY};">A new Poolhouse booking has been confirmed.</p>
        <p style="margin:0;">Name: ${escapeHtml(payload.name)}<br/>Email: ${escapeHtml(payload.email)}<br/>Amount: ${escapeHtml(amount)}<br/>Saturday 5 December · 8:00 PM · Liverpool Street</p>`,
-    ),
-  });
+      ),
+    },
+    "admin",
+  );
 
-  await resend.emails.send({
-    from,
-    to: payload.email,
-    subject: "Your Poolhouse booking with Five Tables",
-    text: [
-      `Dear ${payload.name},`,
-      "",
-      "Thank you for booking Poolhouse with Five Tables.",
-      "",
-      "Saturday 5 December",
-      "8:00 PM",
-      "Liverpool Street",
-      `Amount paid: ${amount}`,
-      "",
-      "Your place includes private suite access, an AI-powered pool experience, an events games host, and small nibbles with a welcome drink.",
-      "",
-      "We look forward to welcoming you.",
-      "",
-      "Five Tables · London",
-    ].join("\n"),
-    html: shell(
-      "Your place is confirmed",
-      "Poolhouse",
-      `<p style="margin:0 0 16px;color:${IVORY};">Dear ${escapeHtml(payload.name)},</p>
+  await sendOrThrow(
+    resend,
+    {
+      from,
+      to: payload.email,
+      subject: "Your Poolhouse booking with Five Tables",
+      text: [
+        `Dear ${payload.name},`,
+        "",
+        "Thank you for booking Poolhouse with Five Tables.",
+        "",
+        "Saturday 5 December",
+        "8:00 PM",
+        "Liverpool Street",
+        `Amount paid: ${amount}`,
+        "",
+        "Your place includes private suite access, an AI-powered pool experience, an events games host, and small nibbles with a welcome drink.",
+        "",
+        "We look forward to welcoming you.",
+        "",
+        "Five Tables · London",
+      ].join("\n"),
+      html: shell(
+        "Your place is confirmed",
+        "Poolhouse",
+        `<p style="margin:0 0 16px;color:${IVORY};">Dear ${escapeHtml(payload.name)},</p>
        <p style="margin:0 0 16px;">Thank you for booking Poolhouse with Five Tables.</p>
        <p style="margin:0 0 16px;color:${IVORY};">Saturday 5 December<br/>8:00 PM<br/>Liverpool Street<br/>Amount paid: ${escapeHtml(amount)}</p>
        <p style="margin:0 0 16px;">Your place includes private suite access, an AI-powered pool experience, an events games host, and small nibbles with a welcome drink.</p>
        <p style="margin:0;font-style:italic;font-family:Georgia,'Times New Roman',serif;color:${IVORY};">We look forward to welcoming you.</p>`,
-    ),
-  });
+      ),
+    },
+    "guest",
+  );
 }
