@@ -20,6 +20,7 @@ This repository contains the early-access website and waitlist experience.
 
 - Compact landing page with brand-aligned design
 - Early-access waitlist form (name, email, phone, sector)
+- Private event page: `/events/poolhouse` with Stripe Payment Link
 - Server-side validation and persistence to Neon
 - Responsive layout for desktop and mobile
 
@@ -91,8 +92,22 @@ In the Vercel project → **Settings → Environment Variables**, add:
 | `RESEND_API_KEY` | Resend API key |
 | `EMAIL_FROM` | `Five Tables <hello@fivetables.co.uk>` |
 | `WAITLIST_NOTIFY_EMAIL` | `fivetablesuk@gmail.com` |
+| `STRIPE_SECRET_KEY` | Stripe secret key (for post-payment emails) |
+| `STRIPE_WEBHOOK_SECRET` | Webhook signing secret for `/api/stripe/webhook` |
 
 Apply to Production (and Preview if needed), then redeploy.
+
+### Poolhouse payments
+
+Event page: `/events/poolhouse`  
+Payment button uses the Stripe Payment Link. After payment, Stripe can redirect to `/events/poolhouse/success`.
+
+To send confirmation emails automatically after successful payment:
+
+1. In Stripe Dashboard → Payment Link → After payment → set success URL to `https://fivetables.co.uk/events/poolhouse/success`
+2. Add a webhook endpoint: `https://fivetables.co.uk/api/stripe/webhook`
+3. Listen for `checkout.session.completed`
+4. Set `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` in Vercel
 
 ### Domain: fivetables.co.uk
 
