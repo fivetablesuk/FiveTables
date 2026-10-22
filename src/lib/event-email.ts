@@ -103,13 +103,13 @@ export async function sendPoolhouseBookingEmails(payload: PoolhouseBookingPayloa
         `Name: ${payload.name}`,
         `Email: ${payload.email}`,
         `Amount: ${amount}`,
-        `Event: Saturday 5 December · 8:00 PM · Liverpool Street`,
+        `Event: Saturday 5th December 2026 · 8:00 PM · Liverpool Street`,
       ].join("\n"),
       html: shell(
         "Poolhouse booking paid",
         "Private Event",
         `<p style="margin:0 0 16px;color:${IVORY};">A new Poolhouse booking has been confirmed.</p>
-       <p style="margin:0;">Name: ${escapeHtml(payload.name)}<br/>Email: ${escapeHtml(payload.email)}<br/>Amount: ${escapeHtml(amount)}<br/>Saturday 5 December · 8:00 PM · Liverpool Street</p>`,
+       <p style="margin:0;">Name: ${escapeHtml(payload.name)}<br/>Email: ${escapeHtml(payload.email)}<br/>Amount: ${escapeHtml(amount)}<br/>Saturday 5th December 2026 · 8:00 PM · Liverpool Street</p>`,
       ),
     },
     "admin",
@@ -126,7 +126,7 @@ export async function sendPoolhouseBookingEmails(payload: PoolhouseBookingPayloa
         "",
         "Thank you for booking Poolhouse with Five Tables.",
         "",
-        "Saturday 5 December",
+        "Saturday 5th December 2026",
         "8:00 PM",
         "Liverpool Street",
         `Amount paid: ${amount}`,
@@ -142,7 +142,7 @@ export async function sendPoolhouseBookingEmails(payload: PoolhouseBookingPayloa
         "Poolhouse",
         `<p style="margin:0 0 16px;color:${IVORY};">Dear ${escapeHtml(payload.name)},</p>
        <p style="margin:0 0 16px;">Thank you for booking Poolhouse with Five Tables.</p>
-       <p style="margin:0 0 16px;color:${IVORY};">Saturday 5 December<br/>8:00 PM<br/>Liverpool Street<br/>Amount paid: ${escapeHtml(amount)}</p>
+       <p style="margin:0 0 16px;color:${IVORY};">Saturday 5th December 2026<br/>8:00 PM<br/>Liverpool Street<br/>Amount paid: ${escapeHtml(amount)}</p>
        <p style="margin:0 0 16px;">Your place includes private suite access, an AI-powered pool experience, an events games host, and small nibbles with a welcome drink.</p>
        <p style="margin:0;font-style:italic;font-family:Georgia,'Times New Roman',serif;color:${IVORY};">We look forward to welcoming you.</p>`,
       ),

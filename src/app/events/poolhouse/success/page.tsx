@@ -15,9 +15,8 @@ export default function PoolhouseSuccessPage() {
       </h1>
       <div className="mx-auto mb-6 h-px w-12 bg-primary" aria-hidden />
       <p className="mx-auto mb-10 max-w-md text-sm font-light leading-7 text-muted-foreground">
-        Your payment has been received. A confirmation email will be sent to the
-        address used at checkout. We look forward to welcoming you on Saturday 5
-        December at Liverpool Street.
+        Your payment has been received. We will email you. We look forward to
+        welcoming you on Saturday 5th December 2026 at Liverpool Street.
       </p>
       <Link href="/" className="btn-outline-gold">
         Return Home
