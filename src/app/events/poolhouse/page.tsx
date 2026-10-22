@@ -4,7 +4,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Poolhouse | Private Event",
   description:
-    "Poolhouse — an evening of good company, friendly competition and exceptional games. Saturday 5th December 2026, Liverpool Street. £89.",
+    "Poolhouse — an evening of good company, friendly competition and exceptional games. Saturday 5th December 2026, Poolhouse, Liverpool Street. £89.",
 };
 
 const STRIPE_PAYMENT_URL =
@@ -50,7 +50,7 @@ const DETAILS = [
     ),
   },
   {
-    label: "Liverpool Street",
+    label: "Poolhouse, Liverpool Street",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
         <path
