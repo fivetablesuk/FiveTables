@@ -35,9 +35,8 @@ const waitlistSchema = z.object({
   referredBy: z
     .string()
     .trim()
-    .max(120, "Referral name is too long.")
-    .optional()
-    .transform((value) => value || undefined),
+    .min(2, "Please enter who referred you.")
+    .max(120, "Referral name is too long."),
 });
 
 export async function POST(request: Request) {

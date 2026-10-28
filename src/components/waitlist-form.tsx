@@ -193,13 +193,14 @@ export function WaitlistForm() {
             name="referredBy"
             type="text"
             autoComplete="off"
+            required
             disabled={disabled}
             aria-invalid={Boolean(errors.referredBy)}
             aria-describedby={
               errors.referredBy ? "referredBy-error" : undefined
             }
             className="field text-base sm:text-sm"
-            placeholder="Name of the person who referred you (optional)"
+            placeholder="Name of the person who referred you"
           />
           {errors.referredBy ? (
             <p id="referredBy-error" className="mt-2 text-xs text-primary">

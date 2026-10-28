@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -17,11 +18,32 @@ const TABLES = [
   { numeral: "V", name: "Business & Leadership" },
 ] as const;
 
-const RESPONSIBILITIES = [
-  "Setting the tone of conversation within their sector",
-  "Welcoming new members with discretion and care",
-  "Helping shape gatherings that feel intimate, not transactional",
-  "Upholding the calibre and culture of Five Tables",
+const HOSTS = [
+  {
+    name: "Emmanuel Asuquo",
+    role: "Financial Adviser",
+    image: "/images/hosts/emmanuel-asuquo.png",
+  },
+  {
+    name: "Tunde",
+    role: null,
+    image: "/images/hosts/tunde.jpg",
+  },
+  {
+    name: "Karl Williams",
+    role: null,
+    image: "/images/hosts/karl-williams.jpg",
+  },
+  {
+    name: "Akin Laditan",
+    role: null,
+    image: "/images/hosts/akin-laditan.jpg",
+  },
+  {
+    name: "Samson Akanbi",
+    role: null,
+    image: "/images/hosts/samson-akanbi.jpg",
+  },
 ] as const;
 
 export default function FoundingTableHostsPage() {
@@ -65,7 +87,7 @@ export default function FoundingTableHostsPage() {
                     {table.numeral}
                   </span>
                   <div className="mb-3 h-px w-7 bg-primary" aria-hidden />
-                  <p className="mb-4 max-w-[10rem] text-[0.62rem] font-light leading-4 tracking-[0.1em] text-muted-foreground uppercase">
+                  <p className="mb-4 max-w-40 text-[0.62rem] font-light leading-4 tracking-[0.1em] text-muted-foreground uppercase">
                     {table.name}
                   </p>
                   <p className="text-[0.7rem] font-light tracking-[0.14em] text-primary uppercase">
@@ -77,28 +99,46 @@ export default function FoundingTableHostsPage() {
           </div>
         </section>
 
-        <section className="px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow mb-3 sm:mb-4">The Role</p>
-            <h2 className="mb-3 font-serif text-[clamp(1.5rem,5vw,2.25rem)] font-normal leading-[1.15] text-foreground">
-              What a Founding Host carries
+        <section className="border-b border-border/60 px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16">
+          <div className="mx-auto max-w-5xl">
+            <p className="eyebrow mb-3 text-center sm:mb-4">The Hosts</p>
+            <h2 className="mb-3 text-center font-serif text-[clamp(1.5rem,5vw,2.25rem)] font-normal leading-[1.15] text-foreground">
+              Founding Table Hosts
             </h2>
-            <div className="mx-auto mb-8 h-px w-10 bg-primary sm:mb-10" aria-hidden />
-            <ul className="mx-auto max-w-md space-y-4 text-left sm:space-y-5">
-              {RESPONSIBILITIES.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-4 text-[0.875rem] font-light leading-6 text-muted-foreground"
-                >
-                  <span
-                    className="mt-2.5 h-px w-4 shrink-0 bg-primary"
-                    aria-hidden
-                  />
-                  <span>{item}</span>
+            <div className="mx-auto mb-10 h-px w-10 bg-primary sm:mb-12" aria-hidden />
+
+            <ul className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-3">
+              {HOSTS.map((host) => (
+                <li key={host.name} className="flex flex-col items-center text-center">
+                  <div className="relative mb-5 aspect-[4/5] w-full max-w-[280px] overflow-hidden border border-border/70 sm:mb-6">
+                    <Image
+                      src={host.image}
+                      alt={host.name}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 280px"
+                    />
+                  </div>
+                  <h3 className="font-serif text-xl font-normal text-foreground sm:text-2xl">
+                    {host.name}
+                  </h3>
+                  {host.role ? (
+                    <>
+                      <div className="mx-auto my-3 h-px w-8 bg-primary" aria-hidden />
+                      <p className="text-[0.7rem] font-light tracking-[0.18em] text-primary uppercase">
+                        {host.role}
+                      </p>
+                    </>
+                  ) : null}
                 </li>
               ))}
             </ul>
-            <p className="mx-auto mt-10 max-w-md font-serif text-[0.95rem] italic leading-relaxed text-foreground/90 sm:mt-12">
+          </div>
+        </section>
+
+        <section className="px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="mx-auto max-w-md font-serif text-[0.95rem] italic leading-relaxed text-foreground/90">
               Hosts are invited, not applied for in public. Expression of interest
               begins on the waitlist.
             </p>
