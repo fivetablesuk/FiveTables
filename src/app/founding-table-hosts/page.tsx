@@ -157,15 +157,18 @@ export default function FoundingTableHostsPage() {
             aria-hidden
           />
           <div className="relative mx-auto max-w-3xl text-center fade-up">
-            <p className="eyebrow mb-4 sm:mb-5">The Founding Table Hosts</p>
-            <h1 className="mb-5 font-serif text-[clamp(2rem,7vw,3.5rem)] font-normal leading-[1.12] text-foreground">
-              Building the First Five Tables.
+            <p className="eyebrow mb-4 sm:mb-5">Five Tables</p>
+            <h1 className="mb-4 font-serif text-[clamp(2rem,8vw,3.75rem)] font-normal leading-[1.1] text-foreground">
+              The Founding Table Hosts
             </h1>
             <div className="mx-auto mb-5 h-px w-12 bg-primary sm:mb-6" aria-hidden />
-            <p className="mx-auto max-w-xl text-[0.8125rem] font-light leading-6 text-muted-foreground sm:text-[0.875rem] sm:leading-7">
-              Five Tables brings together accomplished professionals across five
-              sectors — small, curated circles where good company, mentorship and
-              exceptional conversation take root.
+            <p className="mx-auto max-w-xl font-serif text-base italic leading-relaxed text-foreground/90 sm:text-lg">
+              Stewards of conversation across five sectors.
+            </p>
+            <p className="mx-auto mt-5 max-w-lg text-[0.8125rem] font-light leading-6 text-muted-foreground sm:mt-6 sm:text-[0.875rem] sm:leading-7">
+              Each table will have a Founding Host — a trusted presence who helps
+              shape community within their professional world, with care,
+              discretion and exceptional company at the centre.
             </p>
           </div>
 
