@@ -20,7 +20,7 @@ export default function Home() {
         {/* Compact hero */}
         <section
           id="home"
-          className="relative flex min-h-[62svh] items-center justify-center overflow-hidden sm:min-h-[68svh] md:min-h-[72svh]"
+          className="relative flex min-h-[62svh] scroll-mt-16 items-center justify-center overflow-hidden sm:min-h-[68svh] md:min-h-[72svh]"
         >
           <Image
             src="/images/hero-dining.jpg"
