@@ -65,13 +65,13 @@ const TABLE_SECTIONS: TableSection[] = [
     name: "Law & Legal Services",
     hosts: [
       {
-        name: "Karl Williams",
-        role: "Senior Associate Solicitor",
+        name: "Dr Tunde Okewale OBE",
+        role: "Barrister",
         image: "/images/hosts/karl-williams.png",
       },
       {
-        name: "Dr Tunde Okewale OBE",
-        role: "Barrister",
+        name: "Karl Williams",
+        role: "Senior Associate Solicitor",
         image: "/images/hosts/tunde-okewale.jpg",
       },
     ],
@@ -81,14 +81,14 @@ const TABLE_SECTIONS: TableSection[] = [
     name: "Banking, Finance & FinTech",
     hosts: [
       {
-        name: "Akin Laditan",
-        role: "Senior Business Analyst in FinTech",
-        image: "/images/hosts/akin-laditan.jpg",
-      },
-      {
         name: "Emmanuel Asuquo",
         role: "Financial Adviser",
         image: "/images/hosts/emmanuel-asuquo.jpg",
+      },
+      {
+        name: "Akin Laditan",
+        role: "Senior Business Analyst in FinTech",
+        image: "/images/hosts/akin-laditan.jpg",
       },
     ],
   },
@@ -112,8 +112,8 @@ const TABLE_SECTIONS: TableSection[] = [
 
 function HostRow({ host }: { host: Host }) {
   return (
-    <article className="grid items-center gap-6 sm:grid-cols-[minmax(0,220px)_1fr] sm:gap-8 md:grid-cols-[minmax(0,260px)_1fr] md:gap-10">
-      <div className="relative mx-auto aspect-[4/5] w-full max-w-[260px] border border-primary bg-black p-[3px] sm:mx-0">
+    <article className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-8 md:gap-10">
+      <div className="relative aspect-[4/5] w-full max-w-[220px] shrink-0 border border-primary bg-black p-[3px] sm:max-w-[240px] md:max-w-[260px]">
         <div className="relative h-full w-full overflow-hidden border border-primary bg-black">
           {host.image ? (
             <Image
@@ -132,7 +132,7 @@ function HostRow({ host }: { host: Host }) {
           )}
         </div>
       </div>
-      <div className="flex flex-col justify-center text-center sm:text-left">
+      <div className="flex min-h-0 flex-1 flex-col justify-center text-center sm:text-left">
         <h3 className="font-serif text-[1.65rem] font-normal leading-tight text-foreground sm:text-[1.85rem]">
           {host.name}
         </h3>
