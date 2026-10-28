@@ -7,44 +7,141 @@ import { SiteHeader } from "@/components/site-header";
 export const metadata: Metadata = {
   title: "The Founding Table Hosts",
   description:
-    "Five Tables founding hosts — stewards of conversation, culture and community across five professional sectors.",
+    "Building the first five tables — founding hosts across medicine, law, finance, technology and business.",
 };
 
-const TABLES = [
-  { numeral: "I", name: "Medicine & Dentistry" },
-  { numeral: "II", name: "Law & Legal Services" },
-  { numeral: "III", name: "Banking, Finance & FinTech" },
-  { numeral: "IV", name: "Technology & Engineering" },
-  { numeral: "V", name: "Business & Leadership" },
+const VALUES = [
+  {
+    title: "Curated",
+    body: "Every seat is considered with care, intention and calibre.",
+  },
+  {
+    title: "Inclusive",
+    body: "A private community built for belonging, not exclusion for its own sake.",
+  },
+  {
+    title: "Community",
+    body: "Relationships that deepen through conversation and shared experience.",
+  },
+  {
+    title: "Empowering",
+    body: "Space for professionals to grow, contribute and lead with purpose.",
+  },
+  {
+    title: "Engaging",
+    body: "Evenings and gatherings designed for genuine exchange, not networking theatre.",
+  },
+  {
+    title: "Trust",
+    body: "Discretion, respect and reliability at the heart of every table.",
+  },
 ] as const;
 
-const HOSTS = [
+type Host = {
+  name: string;
+  role: string;
+  image?: string;
+};
+
+type TableSection = {
+  numeral: string;
+  name: string;
+  hosts: Host[];
+};
+
+const TABLE_SECTIONS: TableSection[] = [
   {
-    name: "Emmanuel Asuquo",
-    role: "Financial Adviser",
-    image: "/images/hosts/emmanuel-asuquo.png",
+    numeral: "I",
+    name: "Medicine & Dentistry",
+    hosts: [
+      {
+        name: "Dr Kevin Dapaah",
+        role: "Dentist",
+      },
+    ],
   },
   {
-    name: "Tunde",
-    role: null,
-    image: "/images/hosts/tunde.jpg",
+    numeral: "II",
+    name: "Law & Legal Services",
+    hosts: [
+      {
+        name: "Karl Williams",
+        role: "Senior Associate Solicitor",
+        image: "/images/hosts/karl-williams.png",
+      },
+      {
+        name: "Dr Tunde Okewale OBE",
+        role: "Barrister",
+        image: "/images/hosts/tunde-okewale.jpg",
+      },
+    ],
   },
   {
-    name: "Karl Williams",
-    role: null,
-    image: "/images/hosts/karl-williams.jpg",
+    numeral: "III",
+    name: "Banking, Finance & FinTech",
+    hosts: [
+      {
+        name: "Akin Laditan",
+        role: "Senior Business Analyst in FinTech",
+        image: "/images/hosts/akin-laditan.jpg",
+      },
+      {
+        name: "Emmanuel Asuquo",
+        role: "Financial Adviser",
+        image: "/images/hosts/emmanuel-asuquo.jpg",
+      },
+    ],
   },
   {
-    name: "Akin Laditan",
-    role: null,
-    image: "/images/hosts/akin-laditan.jpg",
+    numeral: "IV",
+    name: "Technology & Engineering",
+    hosts: [],
   },
   {
-    name: "Samson Akanbi",
-    role: null,
-    image: "/images/hosts/samson-akanbi.jpg",
+    numeral: "V",
+    name: "Business & Leadership",
+    hosts: [
+      {
+        name: "Samson Akanbi",
+        role: "CEO / Coach",
+        image: "/images/hosts/samson-akanbi.jpg",
+      },
+    ],
   },
-] as const;
+];
+
+function HostRow({ host }: { host: Host }) {
+  return (
+    <article className="grid items-start gap-6 sm:grid-cols-[minmax(0,220px)_1fr] sm:gap-8 md:grid-cols-[minmax(0,260px)_1fr] md:gap-10">
+      <div className="relative mx-auto aspect-[4/5] w-full max-w-[260px] overflow-hidden border border-border/70 bg-card sm:mx-0">
+        {host.image ? (
+          <Image
+            src={host.image}
+            alt={host.name}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 640px) 80vw, 260px"
+          />
+        ) : (
+          <div className="flex h-full min-h-[280px] items-center justify-center px-6 text-center">
+            <p className="text-[0.65rem] font-light tracking-[0.2em] text-primary uppercase">
+              Portrait to be added
+            </p>
+          </div>
+        )}
+      </div>
+      <div className="flex flex-col justify-center pt-1 text-center sm:pt-4 sm:text-left">
+        <h3 className="font-serif text-[1.65rem] font-normal leading-tight text-foreground sm:text-[1.85rem]">
+          {host.name}
+        </h3>
+        <div className="mx-auto my-3 h-px w-10 bg-primary sm:mx-0" aria-hidden />
+        <p className="text-[0.72rem] font-light tracking-[0.16em] text-primary uppercase sm:text-[0.75rem]">
+          {host.role}
+        </p>
+      </div>
+    </article>
+  );
+}
 
 export default function FoundingTableHostsPage() {
   return (
@@ -52,101 +149,81 @@ export default function FoundingTableHostsPage() {
       <SiteHeader />
 
       <main>
-        <section className="relative overflow-hidden border-b border-border/60 px-4 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-28 md:px-10 md:pb-20 md:pt-32">
+        <section className="relative overflow-hidden border-b border-border/60 px-4 pb-12 pt-24 sm:px-6 sm:pb-14 sm:pt-28 md:px-10 md:pb-16 md:pt-32">
           <div
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.745_0.072_85/0.08),transparent_55%)]"
             aria-hidden
           />
           <div className="relative mx-auto max-w-3xl text-center fade-up">
-            <p className="eyebrow mb-4 sm:mb-5">Five Tables</p>
-            <h1 className="mb-4 font-serif text-[clamp(2rem,8vw,3.75rem)] font-normal leading-[1.1] text-foreground">
-              The Founding Table Hosts
+            <p className="eyebrow mb-4 sm:mb-5">The Founding Table Hosts</p>
+            <h1 className="mb-5 font-serif text-[clamp(2rem,7vw,3.5rem)] font-normal leading-[1.12] text-foreground">
+              Building the First Five Tables.
             </h1>
             <div className="mx-auto mb-5 h-px w-12 bg-primary sm:mb-6" aria-hidden />
-            <p className="mx-auto max-w-xl font-serif text-base italic leading-relaxed text-foreground/90 sm:text-lg">
-              Stewards of conversation across five sectors.
+            <p className="mx-auto max-w-xl text-[0.8125rem] font-light leading-6 text-muted-foreground sm:text-[0.875rem] sm:leading-7">
+              Five Tables brings together accomplished professionals across five
+              sectors — small, curated circles where good company, mentorship and
+              exceptional conversation take root.
             </p>
-            <p className="mx-auto mt-5 max-w-lg text-[0.8125rem] font-light leading-6 text-muted-foreground sm:mt-6 sm:text-[0.875rem] sm:leading-7">
-              Each table will have a Founding Host — a trusted presence who helps
-              shape community within their professional world, with care,
-              discretion and exceptional company at the centre.
-            </p>
+          </div>
+
+          <div className="relative mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-x-4 gap-y-8 sm:mt-14 sm:grid-cols-3 sm:gap-8 lg:mt-16 lg:grid-cols-6 lg:gap-4">
+            {VALUES.map((value) => (
+              <div key={value.title} className="text-center lg:text-left">
+                <p className="mb-2 text-[0.62rem] font-light tracking-[0.18em] text-primary uppercase sm:tracking-[0.22em]">
+                  {value.title}
+                </p>
+                <p className="text-[0.7rem] font-light leading-5 text-muted-foreground sm:text-[0.75rem] sm:leading-5">
+                  {value.body}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
-        <section className="border-b border-border/60 px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16">
-          <div className="mx-auto max-w-5xl">
-            <p className="eyebrow mb-8 text-center sm:mb-10">The Five Tables</p>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-5 lg:gap-4">
-              {TABLES.map((table) => (
-                <div
-                  key={table.numeral}
-                  className="flex flex-col items-center border border-border/70 px-4 py-8 text-center"
-                >
-                  <span className="mb-2 font-serif text-[1.75rem] font-light text-primary sm:text-3xl">
-                    {table.numeral}
-                  </span>
-                  <div className="mb-3 h-px w-7 bg-primary" aria-hidden />
-                  <p className="mb-4 max-w-40 text-[0.62rem] font-light leading-4 tracking-[0.1em] text-muted-foreground uppercase">
-                    {table.name}
-                  </p>
-                  <p className="text-[0.7rem] font-light tracking-[0.14em] text-primary uppercase">
-                    Host seat
-                  </p>
+        {TABLE_SECTIONS.map((table) => (
+          <section
+            key={table.numeral}
+            className="border-b border-border/60 px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16"
+          >
+            <div className="mx-auto max-w-4xl">
+              <div className="mb-8 text-center sm:mb-10 sm:text-left">
+                <p className="eyebrow mb-2">
+                  Table {table.numeral}
+                </p>
+                <h2 className="font-serif text-[clamp(1.5rem,4vw,2.15rem)] font-normal text-foreground">
+                  {table.name}
+                </h2>
+              </div>
+
+              {table.hosts.length > 0 ? (
+                <div className="space-y-12 sm:space-y-14">
+                  {table.hosts.map((host) => (
+                    <HostRow key={host.name} host={host} />
+                  ))}
                 </div>
-              ))}
+              ) : (
+                <p className="text-center text-sm font-light text-muted-foreground sm:text-left">
+                  Host to be announced.
+                </p>
+              )}
             </div>
-          </div>
-        </section>
+          </section>
+        ))}
 
-        <section className="border-b border-border/60 px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16">
-          <div className="mx-auto max-w-5xl">
-            <p className="eyebrow mb-3 text-center sm:mb-4">The Hosts</p>
-            <h2 className="mb-3 text-center font-serif text-[clamp(1.5rem,5vw,2.25rem)] font-normal leading-[1.15] text-foreground">
-              Founding Table Hosts
-            </h2>
-            <div className="mx-auto mb-10 h-px w-10 bg-primary sm:mb-12" aria-hidden />
-
-            <ul className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-3">
-              {HOSTS.map((host) => (
-                <li key={host.name} className="flex flex-col items-center text-center">
-                  <div className="relative mb-5 aspect-[4/5] w-full max-w-[280px] overflow-hidden border border-border/70 sm:mb-6">
-                    <Image
-                      src={host.image}
-                      alt={host.name}
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 280px"
-                    />
-                  </div>
-                  <h3 className="font-serif text-xl font-normal text-foreground sm:text-2xl">
-                    {host.name}
-                  </h3>
-                  {host.role ? (
-                    <>
-                      <div className="mx-auto my-3 h-px w-8 bg-primary" aria-hidden />
-                      <p className="text-[0.7rem] font-light tracking-[0.18em] text-primary uppercase">
-                        {host.role}
-                      </p>
-                    </>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16">
+        <section className="px-4 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="mx-auto max-w-md font-serif text-[0.95rem] italic leading-relaxed text-foreground/90">
-              Hosts are invited, not applied for in public. Expression of interest
-              begins on the waitlist.
+            <p className="eyebrow mb-4">Join Five Tables</p>
+            <h2 className="mb-4 font-serif text-[clamp(1.65rem,5vw,2.5rem)] font-normal text-foreground">
+              For you. For our community.
+            </h2>
+            <div className="mx-auto mb-6 h-px w-10 bg-primary" aria-hidden />
+            <p className="mx-auto mb-8 max-w-md text-[0.8125rem] font-light leading-6 text-muted-foreground sm:text-[0.875rem] sm:leading-7">
+              Early access is invitation-led. Share your details to be considered.
             </p>
-            <div className="mt-8 sm:mt-10">
-              <Link href="/#early-access" className="btn-gold">
-                Join the Waitlist
-              </Link>
-            </div>
+            <Link href="/#early-access" className="btn-gold">
+              Join the Waitlist
+            </Link>
           </div>
         </section>
       </main>
