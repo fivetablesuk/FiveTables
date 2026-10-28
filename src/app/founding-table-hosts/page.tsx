@@ -57,6 +57,7 @@ const TABLE_SECTIONS: TableSection[] = [
       {
         name: "Dr Kevin Dapaah",
         role: "Dentist",
+        image: "/images/hosts/kevin-dapaah.jpg",
       },
     ],
   },
