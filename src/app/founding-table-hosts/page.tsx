@@ -112,7 +112,7 @@ const TABLE_SECTIONS: TableSection[] = [
 
 function HostRow({ host }: { host: Host }) {
   return (
-    <article className="grid items-start gap-6 sm:grid-cols-[minmax(0,220px)_1fr] sm:gap-8 md:grid-cols-[minmax(0,260px)_1fr] md:gap-10">
+    <article className="grid items-center gap-6 sm:grid-cols-[minmax(0,220px)_1fr] sm:gap-8 md:grid-cols-[minmax(0,260px)_1fr] md:gap-10">
       <div className="relative mx-auto aspect-[4/5] w-full max-w-[260px] overflow-hidden border border-border/70 bg-card sm:mx-0">
         {host.image ? (
           <Image
@@ -130,7 +130,7 @@ function HostRow({ host }: { host: Host }) {
           </div>
         )}
       </div>
-      <div className="flex flex-col justify-center pt-1 text-center sm:pt-4 sm:text-left">
+      <div className="flex flex-col justify-center text-center sm:text-left">
         <h3 className="font-serif text-[1.65rem] font-normal leading-tight text-foreground sm:text-[1.85rem]">
           {host.name}
         </h3>
