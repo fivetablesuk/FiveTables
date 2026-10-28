@@ -27,7 +27,7 @@ export default function Home() {
             alt=""
             fill
             priority
-            className="object-cover object-[center_30%] sm:object-center"
+            className="object-cover object-center"
             sizes="100vw"
           />
           <div className="veil absolute inset-0" aria-hidden />
