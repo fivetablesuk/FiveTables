@@ -6,7 +6,7 @@ import { SECTORS } from "@/lib/sectors";
 type Status = "idle" | "submitting" | "success" | "error";
 
 type FieldErrors = Partial<
-  Record<"name" | "email" | "phone" | "sector" | "form", string>
+  Record<"name" | "email" | "phone" | "sector" | "referredBy" | "form", string>
 >;
 
 export function WaitlistForm() {
@@ -24,6 +24,7 @@ export function WaitlistForm() {
       email: String(new FormData(form).get("email") ?? "").trim(),
       phone: String(new FormData(form).get("phone") ?? "").trim(),
       sector: String(new FormData(form).get("sector") ?? "").trim(),
+      referredBy: String(new FormData(form).get("referredBy") ?? "").trim(),
     };
 
     try {
@@ -179,6 +180,30 @@ export function WaitlistForm() {
           {errors.sector ? (
             <p id="sector-error" className="mt-2 text-xs text-primary">
               {errors.sector}
+            </p>
+          ) : null}
+        </div>
+
+        <div className="md:col-span-2">
+          <label htmlFor="referredBy" className="eyebrow mb-2 block sm:mb-3">
+            Referred by
+          </label>
+          <input
+            id="referredBy"
+            name="referredBy"
+            type="text"
+            autoComplete="off"
+            disabled={disabled}
+            aria-invalid={Boolean(errors.referredBy)}
+            aria-describedby={
+              errors.referredBy ? "referredBy-error" : undefined
+            }
+            className="field text-base sm:text-sm"
+            placeholder="Name of the person who referred you (optional)"
+          />
+          {errors.referredBy ? (
+            <p id="referredBy-error" className="mt-2 text-xs text-primary">
+              {errors.referredBy}
             </p>
           ) : null}
         </div>

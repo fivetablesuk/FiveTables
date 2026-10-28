@@ -12,6 +12,7 @@ export type WaitlistEmailPayload = {
   email: string;
   phone: string;
   sector: string;
+  referredBy?: string;
 };
 
 function getResend() {

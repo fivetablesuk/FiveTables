@@ -32,6 +32,12 @@ const waitlistSchema = z.object({
   sector: z.enum(sectorValues, {
     error: "Please select your sector.",
   }),
+  referredBy: z
+    .string()
+    .trim()
+    .max(120, "Referral name is too long.")
+    .optional()
+    .transform((value) => value || undefined),
 });
 
 export async function POST(request: Request) {
@@ -87,10 +93,17 @@ export async function POST(request: Request) {
       email: parsed.data.email,
       phone: parsed.data.phone,
       sector: parsed.data.sector,
+      referredBy: parsed.data.referredBy,
     });
 
     try {
-      await sendWaitlistEmails(parsed.data);
+      await sendWaitlistEmails({
+        name: parsed.data.name,
+        email: parsed.data.email,
+        phone: parsed.data.phone,
+        sector: parsed.data.sector,
+        referredBy: parsed.data.referredBy,
+      });
     } catch (emailError) {
       // Application is already saved — do not fail the request if email fails.
       console.error("[waitlist] email error", emailError);

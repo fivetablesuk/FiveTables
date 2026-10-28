@@ -129,6 +129,7 @@ export function adminNotificationHtml(
         ${row("Email", payload.email)}
         ${row("Phone", payload.phone)}
         ${row("Sector", payload.sectorLabel)}
+        ${row("Referred by", payload.referredBy?.trim() || "—")}
       </table>
     `,
   });
@@ -160,6 +161,7 @@ export function adminNotificationText(
     `Email: ${payload.email}`,
     `Phone: ${payload.phone}`,
     `Sector: ${payload.sectorLabel}`,
+    `Referred by: ${payload.referredBy?.trim() || "—"}`,
     "",
     "— Five Tables",
   ].join("\n");

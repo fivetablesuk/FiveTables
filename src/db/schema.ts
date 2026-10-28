@@ -14,6 +14,7 @@ export const waitlistEntries = pgTable(
     email: text("email").notNull(),
     phone: text("phone").notNull(),
     sector: text("sector").notNull(),
+    referredBy: text("referred_by"),
     createdAt: timestamp("created_at", { withTimezone: true })
       .defaultNow()
       .notNull(),
