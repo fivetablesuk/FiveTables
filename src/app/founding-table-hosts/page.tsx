@@ -5,37 +5,10 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
-  title: "The Founding Table Hosts",
+  title: "Founding Table Hosts",
   description:
-    "Building the first five tables — founding hosts across medicine, law, finance, technology and business.",
+    "Founding hosts across medicine, law, finance, technology and business — Five Sectors. One Community.",
 };
-
-const VALUES = [
-  {
-    title: "Curated",
-    body: "Every seat is considered with care, intention and calibre.",
-  },
-  {
-    title: "Inclusive",
-    body: "A private community built for belonging, not exclusion for its own sake.",
-  },
-  {
-    title: "Community",
-    body: "Relationships that deepen through conversation and shared experience.",
-  },
-  {
-    title: "Empowering",
-    body: "Space for professionals to grow, contribute and lead with purpose.",
-  },
-  {
-    title: "Engaging",
-    body: "Evenings and gatherings designed for genuine exchange, not networking theatre.",
-  },
-  {
-    title: "Trust",
-    body: "Discretion, respect and reliability at the heart of every table.",
-  },
-] as const;
 
 type Host = {
   name: string;
@@ -104,7 +77,7 @@ const TABLE_SECTIONS: TableSection[] = [
     hosts: [
       {
         name: "Samson Akanbi",
-        role: "CEO / Coach",
+        role: "CEO, Crescit",
         image: "/images/hosts/samson-akanbi.jpg",
       },
     ],
@@ -160,30 +133,12 @@ export default function FoundingTableHostsPage() {
           <div className="relative mx-auto max-w-3xl text-center fade-up">
             <p className="eyebrow mb-4 sm:mb-5">Five Tables</p>
             <h1 className="mb-4 font-serif text-[clamp(2rem,8vw,3.75rem)] font-normal leading-[1.1] text-foreground">
-              The Founding Table Hosts
+              Founding Table Hosts
             </h1>
             <div className="mx-auto mb-5 h-px w-12 bg-primary sm:mb-6" aria-hidden />
             <p className="mx-auto max-w-xl font-serif text-base italic leading-relaxed text-foreground/90 sm:text-lg">
-              Stewards of conversation across five sectors.
+              Stewards of leadership across five sectors.
             </p>
-            <p className="mx-auto mt-5 max-w-lg text-[0.8125rem] font-light leading-6 text-muted-foreground sm:mt-6 sm:text-[0.875rem] sm:leading-7">
-              Each table will have a Founding Host — a trusted presence who helps
-              shape community within their professional world, with care,
-              discretion and exceptional company at the centre.
-            </p>
-          </div>
-
-          <div className="relative mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-x-4 gap-y-8 sm:mt-14 sm:grid-cols-3 sm:gap-8 lg:mt-16 lg:grid-cols-6 lg:gap-4">
-            {VALUES.map((value) => (
-              <div key={value.title} className="text-center lg:text-left">
-                <p className="mb-2 text-[0.62rem] font-light tracking-[0.18em] text-primary uppercase sm:tracking-[0.22em]">
-                  {value.title}
-                </p>
-                <p className="text-[0.7rem] font-light leading-5 text-muted-foreground sm:text-[0.75rem] sm:leading-5">
-                  {value.body}
-                </p>
-              </div>
-            ))}
           </div>
         </section>
 
@@ -194,9 +149,7 @@ export default function FoundingTableHostsPage() {
           >
             <div className="mx-auto max-w-4xl">
               <div className="mb-8 text-center sm:mb-10 sm:text-left">
-                <p className="eyebrow mb-2">
-                  Table {table.numeral}
-                </p>
+                <p className="eyebrow mb-2">Table {table.numeral}</p>
                 <h2 className="font-serif text-[clamp(1.5rem,4vw,2.15rem)] font-normal text-foreground">
                   {table.name}
                 </h2>
@@ -221,12 +174,9 @@ export default function FoundingTableHostsPage() {
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow mb-4">Join Five Tables</p>
             <h2 className="mb-4 font-serif text-[clamp(1.65rem,5vw,2.5rem)] font-normal text-foreground">
-              For you. For our community.
+              Five Sectors. One Community.
             </h2>
-            <div className="mx-auto mb-6 h-px w-10 bg-primary" aria-hidden />
-            <p className="mx-auto mb-8 max-w-md text-[0.8125rem] font-light leading-6 text-muted-foreground sm:text-[0.875rem] sm:leading-7">
-              Early access is invitation-led. Share your details to be considered.
-            </p>
+            <div className="mx-auto mb-8 h-px w-10 bg-primary" aria-hidden />
             <Link href="/#early-access" className="btn-gold">
               Join the Waitlist
             </Link>
