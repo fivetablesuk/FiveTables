@@ -113,22 +113,24 @@ const TABLE_SECTIONS: TableSection[] = [
 function HostRow({ host }: { host: Host }) {
   return (
     <article className="grid items-center gap-6 sm:grid-cols-[minmax(0,220px)_1fr] sm:gap-8 md:grid-cols-[minmax(0,260px)_1fr] md:gap-10">
-      <div className="relative mx-auto aspect-[4/5] w-full max-w-[260px] overflow-hidden border border-border/70 bg-card sm:mx-0">
-        {host.image ? (
-          <Image
-            src={host.image}
-            alt={host.name}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 640px) 80vw, 260px"
-          />
-        ) : (
-          <div className="flex h-full min-h-[280px] items-center justify-center px-6 text-center">
-            <p className="text-[0.65rem] font-light tracking-[0.2em] text-primary uppercase">
-              Portrait to be added
-            </p>
-          </div>
-        )}
+      <div className="relative mx-auto aspect-[4/5] w-full max-w-[260px] border border-primary bg-black p-[3px] sm:mx-0">
+        <div className="relative h-full w-full overflow-hidden border border-primary bg-black">
+          {host.image ? (
+            <Image
+              src={host.image}
+              alt={host.name}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 640px) 80vw, 260px"
+            />
+          ) : (
+            <div className="flex h-full min-h-[280px] items-center justify-center px-6 text-center">
+              <p className="text-[0.65rem] font-light tracking-[0.22em] text-primary uppercase">
+                Portrait to be added
+              </p>
+            </div>
+          )}
+        </div>
       </div>
       <div className="flex flex-col justify-center text-center sm:text-left">
         <h3 className="font-serif text-[1.65rem] font-normal leading-tight text-foreground sm:text-[1.85rem]">
