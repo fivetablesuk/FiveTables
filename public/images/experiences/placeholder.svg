@@ -1,0 +1,6 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#0A0A0A"/>
+  <rect x="24" y="24" width="1152" height="752" fill="none" stroke="#C5A059" stroke-width="2"/>
+  <rect x="36" y="36" width="1128" height="728" fill="none" stroke="#C5A059" stroke-width="1"/>
+  <text x="600" y="390" text-anchor="middle" fill="#C5A059" font-family="Georgia, serif" font-size="28" letter-spacing="6">IMAGE TO FOLLOW</text>
+</svg>

@@ -13,7 +13,7 @@ export function SiteHeader() {
 
         <nav
           aria-label="Primary"
-          className="flex items-center gap-2 sm:gap-4 md:gap-6"
+          className="flex items-center gap-2 sm:gap-3 md:gap-5"
         >
           <Link
             href="/"
@@ -27,6 +27,12 @@ export function SiteHeader() {
           >
             <span className="sm:hidden">Hosts</span>
             <span className="hidden sm:inline">Founding Table Hosts</span>
+          </Link>
+          <Link
+            href="/experiences"
+            className="text-[0.55rem] tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-primary focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-[0.62rem] sm:tracking-[0.16em] md:text-[0.65rem] md:tracking-[0.18em]"
+          >
+            Experiences
           </Link>
           <Link
             href="/#early-access"
