@@ -65,7 +65,7 @@ function emailShell(options: {
                 Five Tables
               </p>
               <p style="margin:0;font-family:Jost,Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:${MUTED};">
-                London · Est. 2026
+                London
               </p>
             </td>
           </tr>
@@ -147,7 +147,7 @@ export function applicantConfirmationText(name: string) {
     "A seat is curated, not simply purchased.",
     "",
     "Five Tables",
-    "London · Est. 2026",
+    "London",
   ].join("\n");
 }
 

@@ -59,7 +59,7 @@ function shell(title: string, eyebrow: string, bodyHtml: string) {
           <tr>
             <td style="padding:22px 32px;border-top:1px solid ${BORDER};text-align:center;">
               <p style="margin:0 0 6px;font-family:Georgia,'Times New Roman',serif;font-size:15px;letter-spacing:0.28em;text-transform:uppercase;color:${IVORY};">Five Tables</p>
-              <p style="margin:0;font-family:Jost,Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:${MUTED};">London · Est. 2026</p>
+              <p style="margin:0;font-family:Jost,Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:${MUTED};">London</p>
             </td>
           </tr>
         </table>

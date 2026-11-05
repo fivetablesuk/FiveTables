@@ -8,7 +8,7 @@ export function SiteFooter() {
           Five Tables
         </p>
         <p className="text-[0.6rem] tracking-[0.16em] text-taupe uppercase sm:text-[0.65rem] sm:tracking-[0.2em]">
-          London · Est. 2026
+          London
         </p>
         <nav
           aria-label="Footer"

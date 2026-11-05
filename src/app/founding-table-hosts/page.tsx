@@ -39,11 +39,6 @@ const TABLE_SECTIONS: TableSection[] = [
     name: "Law & Legal Services",
     hosts: [
       {
-        name: "Dr Tunde Okewale OBE",
-        role: "Barrister",
-        image: "/images/hosts/karl-williams.png",
-      },
-      {
         name: "Karl Williams",
         role: "Senior Associate Solicitor",
         image: "/images/hosts/tunde-okewale.jpg",
@@ -125,12 +120,20 @@ export default function FoundingTableHostsPage() {
       <SiteHeader />
 
       <main>
-        <section className="relative overflow-hidden border-b border-border/60 px-4 pb-12 pt-24 sm:px-6 sm:pb-14 sm:pt-28 md:px-10 md:pb-16 md:pt-32">
+        <section className="relative flex min-h-[52svh] items-end overflow-hidden border-b border-border/60 sm:min-h-[58svh] md:min-h-[64svh]">
+          <Image
+            src="/images/founding-hosts-banner.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
           <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.745_0.072_85/0.08),transparent_55%)]"
+            className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/55 to-black/92"
             aria-hidden
           />
-          <div className="relative mx-auto max-w-3xl text-center fade-up">
+          <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-12 pt-28 text-center fade-up sm:px-6 sm:pb-14 sm:pt-32 md:px-10 md:pb-16">
             <p className="eyebrow mb-4 sm:mb-5">Five Tables</p>
             <h1 className="mb-4 font-serif text-[clamp(2rem,8vw,3.75rem)] font-normal leading-[1.1] text-foreground">
               Founding Table Hosts
@@ -138,6 +141,11 @@ export default function FoundingTableHostsPage() {
             <div className="mx-auto mb-5 h-px w-12 bg-primary sm:mb-6" aria-hidden />
             <p className="mx-auto max-w-xl font-serif text-base italic leading-relaxed text-foreground/90 sm:text-lg">
               Stewards of leadership across five sectors.
+            </p>
+            <p className="mx-auto mt-5 max-w-lg text-[0.8125rem] font-light leading-6 text-muted-foreground sm:mt-6 sm:text-[0.875rem] sm:leading-7">
+              Each table will have a Founding Host — a trusted presence who helps
+              shape community within their professional world, with care,
+              discretion and exceptional company at the centre.
             </p>
           </div>
         </section>
