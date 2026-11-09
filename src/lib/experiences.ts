@@ -39,7 +39,8 @@ export const EXPERIENCES: Experience[] = [
       "A guided tasting of rare and distinguished whiskies in an intimate setting.",
     description:
       "An evening dedicated to craft and conversation — guided through a curated selection of whiskies, with the time and company to appreciate each pour properly.",
-    image: "/images/experiences/placeholder.jpg",
+    image: "/images/experiences/whisky-tasting.jpg",
+    heroImage: "/images/experiences/whisky-tasting.jpg",
     details: ["January 2027", "London", "Members & invited guests"],
   },
   {
@@ -61,7 +62,8 @@ export const EXPERIENCES: Experience[] = [
       "Competitive pursuit indoors — golf simulation and clay shooting in one experience.",
     description:
       "A day of precision and play: indoor golf and clays brought together for members who enjoy competition without sacrificing the calibre of the company.",
-    image: "/images/experiences/placeholder.jpg",
+    image: "/images/experiences/indoor-golf-clays.jpg",
+    heroImage: "/images/experiences/indoor-golf-clays.jpg",
     details: ["March 2027", "Greater London", "Members & invited guests"],
   },
   {
@@ -72,7 +74,8 @@ export const EXPERIENCES: Experience[] = [
       "A day on the course with fellow members — landscape, pace and good company.",
     description:
       "Leave the city behind for a full outdoor golf experience — beautiful fairways, unhurried rounds, and the shared pleasure of a day well spent among peers.",
-    image: "/images/experiences/placeholder.jpg",
+    image: "/images/experiences/outdoor-golf.jpg",
+    heroImage: "/images/experiences/outdoor-golf.jpg",
     details: ["April 2027", "UK", "Members & invited guests"],
   },
   {
@@ -94,7 +97,8 @@ export const EXPERIENCES: Experience[] = [
       "A social padel gathering — movement, energy and connection on court.",
     description:
       "A lively padel social for members — mixed play, easy competition and the chance to meet others across the five tables in a fresh setting.",
-    image: "/images/experiences/placeholder.jpg",
+    image: "/images/experiences/padel.jpg",
+    heroImage: "/images/experiences/padel.jpg",
     details: ["June 2027", "London", "Members & invited guests"],
   },
   {
@@ -105,7 +109,8 @@ export const EXPERIENCES: Experience[] = [
       "An afternoon of polo — atmosphere, elegance and exceptional company.",
     description:
       "Experience the world of polo up close — the energy of the pitch, the setting of a classic day out, and the company of a carefully gathered room.",
-    image: "/images/experiences/placeholder.jpg",
+    image: "/images/experiences/polo.jpg",
+    heroImage: "/images/experiences/polo.jpg",
     details: ["July 2027", "UK", "Members & invited guests"],
   },
   {
@@ -116,7 +121,8 @@ export const EXPERIENCES: Experience[] = [
       "Speed, precision and adrenaline — a motorsport day for members.",
     description:
       "A high-octane motorsport experience built for those who appreciate craft under pressure — track time, insight from the paddock, and a day you will remember.",
-    image: "/images/experiences/placeholder.jpg",
+    image: "/images/experiences/motorsport.jpg",
+    heroImage: "/images/experiences/motorsport.jpg",
     details: ["August 2027", "UK", "Members & invited guests"],
   },
 ];

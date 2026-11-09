@@ -135,7 +135,7 @@ export default function FoundingTableHostsPage() {
           />
           <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-12 pt-28 text-center fade-up sm:px-6 sm:pb-14 sm:pt-32 md:px-10 md:pb-16">
             <p className="eyebrow mb-4 sm:mb-5">Five Tables</p>
-            <h1 className="mb-4 font-serif text-[clamp(2rem,8vw,3.75rem)] font-normal leading-[1.1] text-foreground">
+            <h1 className="display-caps mb-4 text-[clamp(2rem,8vw,3.75rem)] leading-[1.05] text-foreground">
               Founding Table Hosts
             </h1>
             <div className="mx-auto mb-5 h-px w-12 bg-primary sm:mb-6" aria-hidden />
