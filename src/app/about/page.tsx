@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/site-header";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The purpose and philosophy of Five Tables — an invitation-led private community for Black professionals in London.",
+    "The calibre of our community — an invitation-led private community for Black professionals in London.",
 };
 
 const CULTURE = [
@@ -43,53 +43,53 @@ export default function AboutPage() {
       <SiteHeader />
 
       <main>
-        <section className="relative flex min-h-[52svh] items-end overflow-hidden border-b border-border/60 sm:min-h-[58svh] md:min-h-[64svh]">
+        <section className="relative flex min-h-[70svh] items-center justify-center overflow-hidden sm:min-h-[75svh] md:min-h-[80svh]">
           <Image
-            src="/images/founding-hosts-banner.jpg"
+            src="/images/hero-dining.jpg"
             alt=""
             fill
             priority
             className="object-cover object-center"
             sizes="100vw"
           />
+          <div className="veil absolute inset-0" aria-hidden />
           <div
-            className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/55 to-black/92"
+            className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black"
             aria-hidden
           />
-          <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-12 pt-28 text-center fade-up sm:px-6 sm:pb-14 sm:pt-32 md:px-10 md:pb-16">
-            <p className="eyebrow mb-4 sm:mb-5">Five Tables</p>
-            <h1 className="display-caps mb-4 text-[clamp(2rem,8vw,3.75rem)] leading-[1.05] text-foreground">
-              About
+          <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-16 pt-24 text-center fade-up sm:px-6 sm:pb-20 sm:pt-28 md:px-10">
+            <p className="eyebrow mb-5 sm:mb-6">Five Tables</p>
+            <h1 className="mb-5 font-serif text-[clamp(2.1rem,7vw,3.75rem)] font-normal leading-[1.12] text-foreground sm:mb-6">
+              The Calibre of Our Community.
             </h1>
-            <div className="mx-auto mb-5 h-px w-12 bg-primary sm:mb-6" aria-hidden />
-            <p className="mx-auto max-w-xl font-serif text-base italic leading-relaxed text-foreground/90 sm:text-lg">
-              Purpose, philosophy and the calibre of our community.
+            <p className="mx-auto max-w-xl text-[0.875rem] font-light leading-7 text-foreground/90 sm:text-base sm:leading-7">
+              A private community for Black professionals — good company and
+              exceptional conversation.
             </p>
           </div>
         </section>
 
-        <section className="border-b border-border/60 px-4 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20">
+        <section className="bg-background px-4 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow mb-3 sm:mb-4">Our Philosophy</p>
-            <h2 className="mb-4 font-serif text-[clamp(1.65rem,5vw,2.5rem)] font-normal leading-[1.15] text-foreground">
-              Relationships formed through shared experience
-            </h2>
-            <div className="mx-auto mb-6 h-px w-10 bg-primary" aria-hidden />
-            <p className="text-[0.875rem] font-light leading-7 text-muted-foreground sm:text-[0.9375rem] sm:leading-8">
-              Five Tables is built on the belief that meaningful relationships
-              are formed through shared experiences, consistency and genuine
-              human connection — not networking theatre, and never a
-              transaction.
+            <p className="mx-auto mb-10 max-w-xl text-[0.875rem] font-light leading-7 text-muted-foreground sm:mb-12 sm:text-[0.9375rem] sm:leading-8">
+              An invitation-led community across five sectors, with a
+              professional home for every member and access to a wider
+              cross-sector community.
             </p>
-            <p className="mt-5 text-[0.875rem] font-light leading-7 text-muted-foreground sm:text-[0.9375rem] sm:leading-8">
-              We gather accomplished Black professionals across five sectors in
-              London into an invitation-led community where good company and
-              exceptional conversation come first.
-            </p>
+            <Link
+              href="/founding-table-hosts"
+              className="inline-block text-[0.65rem] font-light tracking-[0.22em] text-primary uppercase transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-[0.7rem] sm:tracking-[0.28em]"
+            >
+              Meet the Founding Table Hosts
+              <span
+                className="mx-auto mt-2 block h-px w-full bg-primary"
+                aria-hidden
+              />
+            </Link>
           </div>
         </section>
 
-        <section className="border-b border-border/60 px-4 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20">
+        <section className="border-t border-border/60 px-4 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20">
           <div className="mx-auto max-w-4xl">
             <div className="mb-10 text-center sm:mb-12">
               <p className="eyebrow mb-3 sm:mb-4">Our Culture</p>
@@ -113,7 +113,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="border-b border-border/60 px-4 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20">
+        <section className="border-t border-border/60 px-4 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20">
           <div className="mx-auto max-w-5xl">
             <div className="mb-10 text-center sm:mb-12">
               <p className="eyebrow mb-3 sm:mb-4">Our Principles</p>
@@ -124,11 +124,17 @@ export default function AboutPage() {
             </div>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-4 lg:gap-6">
               {PRINCIPLES.map((principle, index) => (
-                <article key={principle.title} className="text-center lg:text-left">
+                <article
+                  key={principle.title}
+                  className="text-center lg:text-left"
+                >
                   <p className="mb-3 font-serif text-[1.75rem] font-light text-primary sm:text-3xl">
                     {String(index + 1).padStart(2, "0")}
                   </p>
-                  <div className="mx-auto mb-4 h-px w-8 bg-primary lg:mx-0" aria-hidden />
+                  <div
+                    className="mx-auto mb-4 h-px w-8 bg-primary lg:mx-0"
+                    aria-hidden
+                  />
                   <h3 className="mb-3 font-serif text-xl font-normal text-foreground sm:text-2xl">
                     {principle.title}
                   </h3>
@@ -141,19 +147,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden">
-          <Image
-            src="/images/hero-dining.jpg"
-            alt=""
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/70 to-black/90"
-            aria-hidden
-          />
-          <div className="relative z-10 mx-auto max-w-2xl px-4 py-16 text-center sm:px-6 sm:py-20 md:py-24">
+        <section className="border-t border-border/60 px-4 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20">
+          <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow mb-4">Five Sectors. One Community.</p>
             <h2 className="mb-4 font-serif text-[clamp(1.65rem,5vw,2.5rem)] font-normal leading-[1.15] text-foreground">
               A seat is curated, not simply purchased.
