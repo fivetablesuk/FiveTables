@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { AboutNavDropdown } from "@/components/about-nav-dropdown";
 
 const navLinkClass =
-  "inline-flex items-center text-[0.55rem] leading-none tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-primary focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-[0.62rem] sm:tracking-[0.16em] md:text-[0.65rem] md:tracking-[0.18em]";
+  "inline-flex items-center gap-1.5 text-[0.58rem] leading-none tracking-[0.18em] text-primary uppercase transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-[0.62rem] sm:tracking-[0.2em] md:text-[0.65rem] md:tracking-[0.22em]";
 
 export function SiteHeader() {
   return (
@@ -16,18 +17,19 @@ export function SiteHeader() {
 
         <nav
           aria-label="Primary"
-          className="absolute top-1/2 left-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 items-center gap-3 sm:gap-5 md:gap-7"
+          className="absolute top-1/2 left-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 items-center gap-3 sm:gap-5 md:gap-7"
         >
           <Link href="/" className={navLinkClass}>
             Home
           </Link>
-          <Link href="/about" className={navLinkClass}>
-            About
-          </Link>
+
+          <AboutNavDropdown />
+
           <Link href="/the-five-tables" className={navLinkClass}>
             <span className="sm:hidden">Tables</span>
             <span className="hidden sm:inline">The Five Tables</span>
           </Link>
+
           <Link href="/experiences" className={navLinkClass}>
             Experiences
           </Link>
