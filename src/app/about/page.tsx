@@ -18,7 +18,7 @@ export default function AboutPage() {
       <main>
         <section className="relative flex min-h-[72svh] items-center justify-center overflow-hidden sm:min-h-[78svh] md:min-h-[85svh]">
           <Image
-            src="/images/hero-dining.jpg"
+            src="/images/about-banner.png"
             alt=""
             fill
             priority
