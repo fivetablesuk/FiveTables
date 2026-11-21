@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const navLinkClass =
-  "inline-flex items-center gap-1.5 text-[0.58rem] leading-none tracking-[0.18em] text-primary uppercase transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-[0.62rem] sm:tracking-[0.2em] md:text-[0.65rem] md:tracking-[0.22em]";
+  "inline-flex items-center gap-1.5 whitespace-nowrap text-[0.58rem] leading-none tracking-[0.2em] text-primary uppercase transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-[0.62rem] sm:tracking-[0.22em] md:tracking-[0.24em]";
 
 const dropLinkClass =
-  "block px-5 py-3 text-left text-[0.7rem] font-light tracking-[0.04em] text-primary transition-colors hover:bg-white/5 hover:text-foreground focus-visible:bg-white/5 focus-visible:outline-none sm:text-[0.75rem]";
+  "block px-5 py-3.5 text-left text-[0.78rem] font-light tracking-[0.02em] text-primary transition-colors hover:bg-[#1a1612] hover:text-[#E8DFD0] focus-visible:bg-[#1a1612] focus-visible:outline-none";
 
 export function AboutNavDropdown() {
   const [open, setOpen] = useState(false);
@@ -47,7 +47,7 @@ export function AboutNavDropdown() {
         About
         <svg
           viewBox="0 0 12 8"
-          className={`h-2 w-2.5 shrink-0 text-primary transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`h-1.5 w-2.5 shrink-0 text-primary transition-transform duration-200 ${open ? "rotate-180" : ""}`}
           fill="none"
           aria-hidden
         >
@@ -63,10 +63,10 @@ export function AboutNavDropdown() {
 
       <div
         role="menu"
-        className={`absolute top-full left-1/2 z-30 mt-3 w-[13.5rem] -translate-x-1/2 border border-white/15 bg-black transition-all duration-200 ${
+        className={`absolute top-full left-1/2 z-30 mt-4 w-[14rem] -translate-x-1/2 border border-white/12 bg-black transition-all duration-200 ${
           open
             ? "visible opacity-100"
-            : "invisible opacity-0 pointer-events-none"
+            : "pointer-events-none invisible opacity-0"
         }`}
       >
         <Link
