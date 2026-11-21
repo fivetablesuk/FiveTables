@@ -31,12 +31,7 @@ export function AboutNavDropdown() {
   }, []);
 
   return (
-    <div
-      ref={rootRef}
-      className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
+    <div ref={rootRef} className="relative">
       <button
         type="button"
         className={navLinkClass}
