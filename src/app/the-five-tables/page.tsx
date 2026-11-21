@@ -47,66 +47,75 @@ export default function TheFiveTablesPage() {
       <SiteHeader />
 
       <main>
-        <section className="px-4 pb-12 pt-28 text-center sm:px-6 sm:pb-14 sm:pt-32 md:px-10 md:pb-16 md:pt-36">
-          <div className="mx-auto max-w-3xl fade-up">
-            <p className="eyebrow mb-5 sm:mb-6">The Five Tables</p>
-            <h1 className="mb-5 font-serif text-[clamp(2rem,7vw,3.5rem)] font-normal leading-[1.12] text-foreground sm:mb-6">
+        {/* Hero */}
+        <section className="px-6 pb-16 pt-32 text-center sm:pb-20 sm:pt-36 md:pb-24 md:pt-40">
+          <div className="mx-auto max-w-[42rem]">
+            <p className="mb-6 text-[0.68rem] font-light tracking-[0.38em] text-primary uppercase">
+              The Five Tables
+            </p>
+            <h1 className="mb-6 font-serif text-[clamp(2.25rem,6.5vw,3.5rem)] font-normal leading-[1.15] text-foreground">
               Five Sectors. One Community.
             </h1>
-            <div className="mx-auto mb-5 h-px w-12 bg-primary sm:mb-6" aria-hidden />
-            <p className="mx-auto max-w-xl text-[0.875rem] font-light leading-7 text-muted-foreground sm:text-base sm:leading-7">
+            <div className="mx-auto mb-6 h-px w-10 bg-primary" aria-hidden />
+            <p className="mx-auto max-w-[32rem] text-[0.9375rem] font-light leading-7 text-muted-foreground">
               Every member has a professional home within Five Tables and access
               to a wider cross-sector community.
             </p>
           </div>
         </section>
 
-        <section className="border-t border-border/40 px-4 py-4 sm:px-6 md:px-10">
-          <div className="mx-auto max-w-3xl">
-            {TABLES.map((table) => (
-              <article
-                key={table.numeral}
-                className="grid grid-cols-[auto_1fr] items-start gap-5 border-b border-border/40 py-10 sm:gap-8 sm:py-12"
-              >
-                <span className="font-serif text-[2.5rem] font-light leading-none text-primary sm:text-[3.25rem]">
-                  {table.numeral}
-                </span>
-                <div className="pt-1 sm:pt-2">
-                  <h2 className="mb-2 font-serif text-[1.35rem] font-normal text-primary sm:text-[1.65rem]">
-                    {table.name}
-                  </h2>
-                  <p className="font-serif text-[0.875rem] font-light italic leading-6 text-muted-foreground sm:text-[0.95rem] sm:leading-7">
-                    {table.roles}
-                  </p>
-                </div>
-              </article>
-            ))}
+        {/* Sector list — shared column grid so every title lines up */}
+        <section className="px-6 md:px-10">
+          <div className="mx-auto max-w-[40rem]">
+            <div className="border-t border-primary/20">
+              {TABLES.map((table) => (
+                <article
+                  key={table.numeral}
+                  className="grid grid-cols-[3.25rem_minmax(0,1fr)] items-start gap-x-6 border-b border-primary/20 py-11 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-x-8 sm:py-12"
+                >
+                  <span className="pt-0.5 text-left font-serif text-[2.75rem] font-light leading-none text-primary sm:text-[3.25rem]">
+                    {table.numeral}
+                  </span>
+                  <div className="min-w-0 pt-2 text-left sm:pt-3">
+                    <h2 className="mb-2.5 font-serif text-[1.35rem] font-normal leading-snug text-primary sm:text-[1.5rem]">
+                      {table.name}
+                    </h2>
+                    <p className="font-serif text-[0.9rem] font-light italic leading-7 text-muted-foreground">
+                      {table.roles}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="px-4 py-16 text-center sm:px-6 sm:py-20 md:px-10 md:py-24">
-          <div className="mx-auto max-w-2xl">
-            <p className="eyebrow mb-5 sm:mb-6">The Exchange</p>
-            <h2 className="mb-4 font-serif text-[clamp(1.85rem,5vw,2.75rem)] font-normal leading-[1.15] text-foreground">
+        {/* The Exchange */}
+        <section className="px-6 py-20 text-center sm:py-24 md:py-28">
+          <div className="mx-auto max-w-[36rem]">
+            <p className="mb-6 text-[0.68rem] font-light tracking-[0.38em] text-primary uppercase">
+              The Exchange
+            </p>
+            <h2 className="mb-5 font-serif text-[clamp(2rem,5vw,2.75rem)] font-normal leading-[1.15] text-foreground">
               Five Tables. One Centre.
             </h2>
-            <p className="mx-auto mb-6 max-w-lg font-serif text-base italic leading-relaxed text-foreground/90 sm:text-lg">
+            <p className="mx-auto mb-6 max-w-[30rem] font-serif text-[1.05rem] italic leading-relaxed text-foreground/90">
               Your Table is where you begin. The Exchange is where everyone
               meets.
             </p>
-            <p className="mx-auto mb-8 max-w-xl text-[0.875rem] font-light leading-7 text-muted-foreground sm:text-[0.9375rem] sm:leading-8">
-              The Exchange is the shared centre of Five Tables — a space for
-              cross-sector relationships, conversation and connection beyond
-              your professional home.
+            <p className="mx-auto mb-10 max-w-[32rem] text-[0.9375rem] font-light leading-7 text-muted-foreground">
+              The Exchange is the shared centre of Five Tables — where members
+              from every sector meet, connect and build relationships beyond
+              their professional home.
             </p>
-            <p className="mx-auto mb-10 max-w-md text-[0.65rem] font-light tracking-[0.18em] text-foreground uppercase sm:text-[0.7rem] sm:tracking-[0.22em]">
+            <p className="mx-auto mb-10 text-[0.68rem] font-light tracking-[0.22em] text-foreground uppercase">
               Your table is your professional home.
-              <br />
+              <br className="hidden sm:block" />{" "}
               Five Tables is your wider community.
             </p>
             <Link
               href="/founding-table-hosts"
-              className="inline-flex items-center gap-2 text-[0.7rem] font-light tracking-[0.2em] text-primary uppercase transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-[0.75rem]"
+              className="inline-flex items-center gap-2 text-[0.7rem] font-light tracking-[0.22em] text-primary uppercase transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ring"
             >
               Meet Our Founding Table Hosts
               <span aria-hidden>→</span>
@@ -114,8 +123,9 @@ export default function TheFiveTablesPage() {
           </div>
         </section>
 
-        <section className="border-t border-border/40 px-4 py-12 text-center sm:px-6 sm:py-14 md:px-10">
-          <Link href="/#early-access" className="btn-gold">
+        {/* Apply */}
+        <section className="px-6 pb-20 text-center sm:pb-24">
+          <Link href="/#early-access" className="btn-gold min-w-[240px]">
             Apply for Membership
           </Link>
         </section>
