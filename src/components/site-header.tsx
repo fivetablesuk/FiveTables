@@ -21,6 +21,9 @@ export function SiteHeader() {
           <Link href="/" className={navLinkClass}>
             Home
           </Link>
+          <Link href="/about" className={navLinkClass}>
+            About
+          </Link>
           <Link href="/founding-table-hosts" className={navLinkClass}>
             <span className="sm:hidden">Hosts</span>
             <span className="hidden sm:inline">Founding Table Hosts</span>

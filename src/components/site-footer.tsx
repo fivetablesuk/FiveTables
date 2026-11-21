@@ -21,6 +21,12 @@ export function SiteFooter() {
             Home
           </Link>
           <Link
+            href="/about"
+            className="text-[0.6rem] tracking-[0.14em] text-muted-foreground uppercase transition-colors hover:text-primary focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-[0.65rem] sm:tracking-[0.18em]"
+          >
+            About
+          </Link>
+          <Link
             href="/founding-table-hosts"
             className="text-[0.6rem] tracking-[0.14em] text-muted-foreground uppercase transition-colors hover:text-primary focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-[0.65rem] sm:tracking-[0.18em]"
           >
