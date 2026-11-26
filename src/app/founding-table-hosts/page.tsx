@@ -28,6 +28,11 @@ const TABLE_SECTIONS: TableSection[] = [
     name: "Medicine & Dentistry",
     hosts: [
       {
+        name: "Dr Jude",
+        role: "Orthopaedic Surgeon",
+        image: "/images/hosts/jude.jpg",
+      },
+      {
         name: "Dr Kevin Dapaah",
         role: "Dentist",
         image: "/images/hosts/kevin-dapaah.jpg",
